@@ -13,8 +13,16 @@ CodeCast is an interactive code execution visualization library that helps devel
 
 ## Installation
 
+### For Users
 ```bash
-pip install codecast
+pip install git+https://github.com/JingwenGu0829/PySlide.git
+```
+
+### For Developers
+```bash
+git clone https://github.com/JingwenGu0829/PySlide.git
+cd PySlide
+pip install -e .
 ```
 
 ## Quick Start
@@ -39,7 +47,7 @@ print(f"Fibonacci(5) = {result}")
 # Create and display the visualization
 presentation = codecast.from_code(code, "fibonacci_example.py")
 presentation.annotate(2, "Base case: return n for n <= 1")
-presentation.display()
+presentation.display()  # Opens in your default web browser
 ```
 
 ## Project Structure
@@ -66,8 +74,10 @@ codecast/
 │       └── server.py
 ├── tests/
 ├── examples/
+│   └── fibonacci.py
 ├── docs/
 ├── pyproject.toml
+├── setup.py
 ├── README.md
 └── LICENSE
 ```
@@ -76,8 +86,8 @@ codecast/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/codecast.git
-cd codecast
+git clone https://github.com/JingwenGu0829/PySlide.git
+cd PySlide
 ```
 
 2. Create a virtual environment:
@@ -91,15 +101,46 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -e ".[dev]"
 ```
 
-4. Run tests:
+4. Run the example:
 ```bash
-pytest
+python examples/fibonacci.py
 ```
+
+## Features in Detail
+
+### Code Execution Tracing
+- Line-by-line execution tracking
+- Variable state capture
+- Call stack monitoring
+- Exception tracking
+
+### Visualization Components
+- Variable timeline view
+- Call stack visualization
+- Code annotations
+- Interactive web interface
+
+### Extensibility
+- Support for custom language adapters
+- Pluggable visualization components
+- Custom presentation renderers
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built with Python's built-in tracing capabilities
+- Web interface powered by simple HTTP server
+- Inspired by Python's debugger and code visualization tools 
