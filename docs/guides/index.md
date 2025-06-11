@@ -29,6 +29,7 @@ A PySlide presentation consists of one or more slides. Each slide can contain:
 - Title (optional)
 - Description (optional)
 - Line annotations
+- Images
 - Visualizations
 - Execution output
 
@@ -46,12 +47,38 @@ Annotations help explain your code by attaching comments to specific lines. Use 
 - Point out important concepts
 - Highlight key implementation details
 
+### Images
+
+You can add images to your slides to:
+- Illustrate concepts
+- Show diagrams or flowcharts
+- Display output visualizations
+- Enhance explanations
+
+Example of adding an image:
+```python
+presentation.add_image(
+    path="images/flowchart.png",
+    alt="Algorithm flowchart",
+    caption="Visual representation of the algorithm",
+    width=800  # Optional: specify dimensions
+)
+```
+
+Best practices for images:
+1. Use descriptive alt text for accessibility
+2. Add captions to provide context
+3. Optimize image sizes for web display
+4. Use appropriate image formats (PNG for diagrams, JPEG for photos)
+5. Consider responsive design (don't set fixed dimensions unless necessary)
+
 ### Visualizations
 
 PySlide supports various types of visualizations:
 - Stack traces for function calls
 - Tree structures
 - Custom JSON-based visualizations
+- Images with captions
 
 ## Best Practices
 
@@ -69,12 +96,14 @@ PySlide supports various types of visualizations:
 3. Use consistent terminology
 4. Don't over-annotate obvious code
 
-### Visualizations
+### Images and Visualizations
 
-1. Use visualizations to complement code, not replace it
+1. Use images to complement code, not replace it
 2. Keep visualizations simple and focused
 3. Use appropriate visualization types for your data
-4. Consider performance with large datasets
+4. Consider performance with large images
+5. Provide meaningful alt text and captions
+6. Optimize image files for web delivery
 
 ## Advanced Topics
 
@@ -109,13 +138,20 @@ presentation.add_stack_trace('factorial', {'factorial': factorial})
 Create multi-slide presentations:
 
 ```python
-# First slide
+# First slide with code
 presentation.new_slide(
     code="# Implementation",
     title="Algorithm Overview"
 )
 
-# Second slide
+# Add an image to explain the concept
+presentation.add_image(
+    path="images/concept.png",
+    alt="Concept diagram",
+    caption="Visual explanation of the algorithm"
+)
+
+# Second slide with example
 presentation.new_slide(
     code="# Example usage",
     title="Using the Algorithm"
@@ -145,10 +181,11 @@ except Exception as e:
    - Verify syntax is correct
    - Ensure all dependencies are installed
 
-2. **Visualization Not Showing**
-   - Verify JSON data is properly formatted
-   - Check that visualization type is supported
-   - Ensure data size is reasonable
+2. **Images Not Displaying**
+   - Verify image path is correct
+   - Check image file exists
+   - Ensure image format is supported
+   - Check file permissions
 
 3. **Browser Issues**
    - Try a different port number

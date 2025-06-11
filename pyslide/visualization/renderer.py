@@ -126,6 +126,21 @@ def create_html_content(presentation_data: Dict[str, Any]) -> str:
             .hidden {{
                 display: none;
             }}
+            .image-container {{
+                margin: 20px 0;
+                text-align: center;
+            }}
+            .image-container img {{
+                max-width: 100%;
+                height: auto;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }}
+            .image-caption {{
+                margin-top: 10px;
+                color: #666;
+                font-style: italic;
+            }}
         </style>
     </head>
     <body>
@@ -164,6 +179,18 @@ def create_html_content(presentation_data: Dict[str, Any]) -> str:
                             </div>
                         ` : ''}}
                         
+                        ${{slide.images ? slide.images.map(img => `
+                            <div class="image-container">
+                                <img 
+                                    src="${{img.path}}" 
+                                    alt="${{img.alt}}"
+                                    ${{img.width ? `width="${{img.width}}"` : ''}}
+                                    ${{img.height ? `height="${{img.height}}"` : ''}}
+                                >
+                                ${{img.caption ? `<div class="image-caption">${{img.caption}}</div>` : ''}}
+                            </div>
+                        `).join('') : ''}}
+                        
                         ${{slide.stack_trace ? `
                             <div class="stack-trace">
                                 <strong>Stack Trace for ${{slide.stack_trace.function_name}}:</strong>
@@ -190,7 +217,7 @@ def create_html_content(presentation_data: Dict[str, Any]) -> str:
                                     ${{slide.stack_trace.trace_info.error ? `
                                         <div class="stack-trace-error">
                                             <strong>Error:</strong>
-                                            <pre>${{slide.stack_trace.trace_info.error}}</pre>
+                                            <pre>${{slide.stack_trace.trace_info.error}}
                                             <pre>${{slide.stack_trace.trace_info.traceback}}</pre>
                                         </div>
                                     ` : ''}}

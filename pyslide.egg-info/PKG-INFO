@@ -18,6 +18,7 @@ Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
+License-File: LICENSE
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: black>=22.0; extra == "dev"
@@ -26,11 +27,14 @@ Requires-Dist: mypy>=0.9; extra == "dev"
 Requires-Dist: flake8>=4.0; extra == "dev"
 Dynamic: author
 Dynamic: home-page
+Dynamic: license-file
 Dynamic: requires-python
 
 # PySlide
 
 PySlide is a Python library for creating interactive code presentations that bridges the gap between Jupyter notebooks and PowerPoint slides. It allows you to create beautiful, executable presentations with code, annotations, and optional visualizations.
+
+![PySlide Demo](docs/images/demo.gif)
 
 ## Features
 
@@ -41,15 +45,7 @@ PySlide is a Python library for creating interactive code presentations that bri
 - Keyboard navigation (arrow keys and space)
 - Modern, clean interface
 
-## Installation
-
-```bash
-pip install pyslide
-```
-
 ## Quick Start
-
-Here's a simple example:
 
 ```python
 from pyslide import PySlide
@@ -73,7 +69,7 @@ presentation.new_slide(
 ).annotate(1, "Function definition")
 
 # Add stack trace visualization
-presentation.add_stack_trace('fibonacci')
+presentation.add_stack_trace('fibonacci', {'fibonacci': fibonacci})
 
 # Execute code and capture output
 presentation.execute_current_slide({'fibonacci': fibonacci})
@@ -82,41 +78,51 @@ presentation.execute_current_slide({'fibonacci': fibonacci})
 presentation.display()
 ```
 
-## API Reference
+## Installation
 
-### PySlide Class
+```bash
+# Create and activate virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-The main class for creating presentations.
+# Install PySlide
+pip install pyslide
+```
 
-#### Methods
+## Documentation
 
-- `new_slide(code: str, title: Optional[str] = None, description: Optional[str] = None) -> PySlide`
-  - Creates a new slide with the given code
-  - Returns self for method chaining
-
-- `annotate(line_number: int, text: str) -> PySlide`
-  - Adds an annotation to a specific line in the current slide
-  - Returns self for method chaining
-
-- `add_visualization(name: str, data: Any) -> PySlide`
-  - Adds a visualization to the current slide
-  - Returns self for method chaining
-
-- `execute_current_slide(globals_dict: Optional[Dict[str, Any]] = None) -> PySlide`
-  - Executes the current slide's code and captures output
-  - Returns self for method chaining
-
-- `add_stack_trace(function_name: str) -> PySlide`
-  - Adds a stack trace visualization for a function
-  - Returns self for method chaining
-
-- `display(port: int = 8000)`
-  - Displays the presentation in a web browser
+- [User Guide](docs/guides/index.md)
+- [API Reference](docs/api/index.md)
+- [Examples](docs/examples/index.md)
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+### Development Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/pyslide.git
+cd pyslide
+```
+
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install development dependencies:
+```bash
+pip install -e ".[dev]"
+```
+
+4. Run tests:
+```bash
+pytest
+```
+
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 

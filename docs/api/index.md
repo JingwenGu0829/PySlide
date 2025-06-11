@@ -60,6 +60,34 @@ Adds a visualization to the current slide.
 **Returns:**
 - `PySlide`: The PySlide instance (for method chaining)
 
+#### add_image
+
+```python
+add_image(path: str, alt: str, caption: Optional[str] = None, width: Optional[int] = None, height: Optional[int] = None) -> PySlide
+```
+
+Adds an image to the current slide.
+
+**Parameters:**
+- `path` (str): Path to the image file (can be local path or URL)
+- `alt` (str): Alternative text for accessibility
+- `caption` (Optional[str]): Optional caption text to display under the image
+- `width` (Optional[int]): Optional width in pixels
+- `height` (Optional[int]): Optional height in pixels
+
+**Returns:**
+- `PySlide`: The PySlide instance (for method chaining)
+
+**Example:**
+```python
+presentation.add_image(
+    path="images/algorithm.png",
+    alt="Algorithm flowchart",
+    caption="Visual representation of the algorithm",
+    width=800
+)
+```
+
 #### execute_current_slide
 
 ```python
@@ -112,4 +140,17 @@ Represents a single slide in the presentation.
 - `description` (Optional[str]): The slide description
 - `visualizations` (Dict[str, Any]): Name to visualization data mapping
 - `execution_output` (Optional[str]): Output from code execution
-- `stack_trace` (Optional[Dict[str, Any]]): Stack trace visualization data 
+- `stack_trace` (Optional[Dict[str, Any]]): Stack trace visualization data
+- `images` (List[Image]): List of images in the slide
+
+## Image Class
+
+Represents an image in a slide.
+
+### Attributes
+
+- `path` (str): Path to the image file (can be local path or URL)
+- `alt` (str): Alternative text for accessibility
+- `caption` (Optional[str]): Optional caption text to display under the image
+- `width` (Optional[int]): Optional width in pixels
+- `height` (Optional[int]): Optional height in pixels 

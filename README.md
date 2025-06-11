@@ -1,96 +1,63 @@
-# PySlide
+# PySlide: Interactive Python Code Presentations
 
-PySlide is a Python library for creating interactive code presentations that bridges the gap between Jupyter notebooks and PowerPoint slides. It allows you to create beautiful, executable presentations with code, annotations, and optional visualizations.
+PySlide is a modern, interactive presentation tool designed specifically for Python code demonstrations. It allows you to create engaging, executable code presentations with real-time visualization and annotation features.
 
-![PySlide Demo](docs/images/demo.gif)
+## 🌟 Features
 
-## Features
+- **Live Code Execution**: Run Python code in real-time during presentations
+- **Interactive Annotations**: Add explanatory notes to specific lines of code
+- **Stack Trace Visualization**: Visualize function calls and execution flow
+- **Image Support**: Enhance presentations with images and diagrams
+- **Modern Interface**: Clean, intuitive web-based presentation interface
+- **Customizable Styling**: Adapt the presentation look to your needs
 
-- Create slides with Python code and annotations
-- Execute code and capture output in real-time
-- Add optional visualizations and stack traces
-- Beautiful syntax highlighting
-- Keyboard navigation (arrow keys and space)
-- Modern, clean interface
+## 📸 Screenshots
 
-## Quick Start
+### Modern Interface
+![PySlide Interface](examples/welcome/example.png)
+*PySlide's clean and intuitive presentation interface*
 
+### Code Visualization
+![Code Visualization](examples/welcome/example2.png)
+*Interactive code execution with annotations and stack trace visualization*
+
+## 🚀 Quick Start
+
+1. Install PySlide:
+```bash
+pip install pyslide
+```
+
+2. Create your first presentation:
 ```python
 from pyslide import PySlide
 
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-
-# Create presentation
+# Create a new presentation
 presentation = PySlide()
 
-# Add a slide
+# Add a slide with code
 presentation.new_slide(
-    code="""def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)""",
-    title="Fibonacci Sequence",
-    description="A recursive implementation"
-).annotate(1, "Function definition")
-
-# Add stack trace visualization
-presentation.add_stack_trace('fibonacci', {'fibonacci': fibonacci})
-
-# Execute code and capture output
-presentation.execute_current_slide({'fibonacci': fibonacci})
+    code="print('Hello, PySlide!')",
+    title="Welcome",
+    description="Your first PySlide presentation"
+)
 
 # Display the presentation
 presentation.display()
 ```
 
-## Installation
+## 📖 Documentation
 
-```bash
-# Create and activate virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+Check out our [examples folder](examples/) for more detailed examples and use cases. The [welcome example](examples/welcome/introduction.py) is a great place to start!
 
-# Install PySlide
-pip install pyslide
-```
+## 🤝 Contributing
 
-## Documentation
+We welcome contributions! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
+- Improve documentation
 
-- [User Guide](docs/guides/index.md)
-- [API Reference](docs/api/index.md)
-- [Examples](docs/examples/index.md)
+## 📄 License
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-### Development Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/pyslide.git
-cd pyslide
-```
-
-2. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install development dependencies:
-```bash
-pip install -e ".[dev]"
-```
-
-4. Run tests:
-```bash
-pytest
-```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+PySlide is released under the MIT License. See the LICENSE file for more details. 
