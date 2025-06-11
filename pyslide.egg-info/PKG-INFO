@@ -1,0 +1,122 @@
+Metadata-Version: 2.4
+Name: pyslide
+Version: 0.1.0
+Summary: Interactive Python Code Presentations
+Home-page: https://github.com/JingwenGu0829/PySlide
+Author: Jingwen Gu
+Author-email: Jingwen Gu <jingwengu0829@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/JingwenGu0829/PySlide
+Project-URL: Repository, https://github.com/JingwenGu0829/PySlide.git
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: black>=22.0; extra == "dev"
+Requires-Dist: isort>=5.0; extra == "dev"
+Requires-Dist: mypy>=0.9; extra == "dev"
+Requires-Dist: flake8>=4.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# PySlide
+
+PySlide is a Python library for creating interactive code presentations that bridges the gap between Jupyter notebooks and PowerPoint slides. It allows you to create beautiful, executable presentations with code, annotations, and optional visualizations.
+
+## Features
+
+- Create slides with Python code and annotations
+- Execute code and capture output in real-time
+- Add optional visualizations and stack traces
+- Beautiful syntax highlighting
+- Keyboard navigation (arrow keys and space)
+- Modern, clean interface
+
+## Installation
+
+```bash
+pip install pyslide
+```
+
+## Quick Start
+
+Here's a simple example:
+
+```python
+from pyslide import PySlide
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Create presentation
+presentation = PySlide()
+
+# Add a slide
+presentation.new_slide(
+    code="""def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)""",
+    title="Fibonacci Sequence",
+    description="A recursive implementation"
+).annotate(1, "Function definition")
+
+# Add stack trace visualization
+presentation.add_stack_trace('fibonacci')
+
+# Execute code and capture output
+presentation.execute_current_slide({'fibonacci': fibonacci})
+
+# Display the presentation
+presentation.display()
+```
+
+## API Reference
+
+### PySlide Class
+
+The main class for creating presentations.
+
+#### Methods
+
+- `new_slide(code: str, title: Optional[str] = None, description: Optional[str] = None) -> PySlide`
+  - Creates a new slide with the given code
+  - Returns self for method chaining
+
+- `annotate(line_number: int, text: str) -> PySlide`
+  - Adds an annotation to a specific line in the current slide
+  - Returns self for method chaining
+
+- `add_visualization(name: str, data: Any) -> PySlide`
+  - Adds a visualization to the current slide
+  - Returns self for method chaining
+
+- `execute_current_slide(globals_dict: Optional[Dict[str, Any]] = None) -> PySlide`
+  - Executes the current slide's code and captures output
+  - Returns self for method chaining
+
+- `add_stack_trace(function_name: str) -> PySlide`
+  - Adds a stack trace visualization for a function
+  - Returns self for method chaining
+
+- `display(port: int = 8000)`
+  - Displays the presentation in a web browser
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 

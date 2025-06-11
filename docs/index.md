@@ -1,17 +1,6 @@
-# PySlide
+# PySlide Documentation
 
 PySlide is a Python library for creating interactive code presentations that bridges the gap between Jupyter notebooks and PowerPoint slides. It allows you to create beautiful, executable presentations with code, annotations, and optional visualizations.
-
-![PySlide Demo](docs/images/demo.gif)
-
-## Features
-
-- Create slides with Python code and annotations
-- Execute code and capture output in real-time
-- Add optional visualizations and stack traces
-- Beautiful syntax highlighting
-- Keyboard navigation (arrow keys and space)
-- Modern, clean interface
 
 ## Quick Start
 
@@ -46,6 +35,15 @@ presentation.execute_current_slide({'fibonacci': fibonacci})
 presentation.display()
 ```
 
+## Features
+
+- Create slides with Python code and annotations
+- Execute code and capture output in real-time
+- Add optional visualizations and stack traces
+- Beautiful syntax highlighting
+- Keyboard navigation (arrow keys and space)
+- Modern, clean interface
+
 ## Installation
 
 ```bash
@@ -57,40 +55,16 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install pyslide
 ```
 
-## Documentation
+## Documentation Sections
 
-- [User Guide](docs/guides/index.md)
-- [API Reference](docs/api/index.md)
-- [Examples](docs/examples/index.md)
+- [API Reference](api/index.md) - Detailed documentation of all PySlide classes and methods
+- [Examples](examples/index.md) - Example presentations and use cases
+- [User Guide](guides/index.md) - In-depth guides and tutorials
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Development Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/pyslide.git
-cd pyslide
-```
-
-2. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install development dependencies:
-```bash
-pip install -e ".[dev]"
-```
-
-4. Run tests:
-```bash
-pytest
-```
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details. 
