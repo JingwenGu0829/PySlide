@@ -1,5 +1,5 @@
 # PySlide: Interactive Python Code Presentations
-
+![PySlide Interface](examples/welcome/example.png)
 PySlide is a modern, interactive presentation tool designed specifically for Python code demonstrations. It allows you to create engaging, executable code presentations with real-time visualization and annotation features.
 
 ## 🌟 Features
@@ -13,11 +13,6 @@ PySlide is a modern, interactive presentation tool designed specifically for Pyt
 
 ## 📸 Screenshots
 
-### Modern Interface
-![PySlide Interface](examples/welcome/example.png)
-*PySlide's clean and intuitive presentation interface*
-
-### Code Visualization
 ![Code Visualization](examples/welcome/example2.png)
 *Interactive code execution with annotations and stack trace visualization*
 
